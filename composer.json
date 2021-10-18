@@ -3,5 +3,7 @@
     "description": "TP4",
     "type": "project",
     "license": "GPL",
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
 }
