@@ -1,18 +1,18 @@
 <?php
 abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
 {
-	public function testobtenernombreyapellido()
+	public function testobtenernombreyapellido();
 	{
 	$m = $this->crear("Fulano","Detal");
 	$this->assertequals("Fulano Detal",$m->getNombreApellido());  
     }
-	 public function testFuncionaeldni()
+	 public function testFuncionaeldni();
  {
 	 $d = $this->crear(123);
 	 $this->assertEquals(123, $d->getDNI());
  }
  
- public function testIngresodelsalario()
+ public function testIngresodelsalario();
  {
 	 $s= $this->crear(2000);
 	 $this->assertEquals(2000, $s->getSalario());
@@ -31,7 +31,26 @@ abstract class EmpleadoTest extends \PHPUnit\Framework\TestCase
 	 $nm = $this->crear("Fulano","Detal",123,2000);
 	 $this->assertEquals("FulanoDetal 123 2000", $nm);	
 	 }
-
+public function testSihayNombrevacio()
+ {
+	 $this->expectException(\Exception::class);
+	 $n = $this->crear(" ");
+ }
+ public function testSihayapellidovacio()
+ {
+	 $this->expectException(\Exception::class);
+	 $n = $this->crear("Fulano","");
+ }
+  public function testSihayeldnivacio()
+ {
+	 $this->expectException(\Exception::class);
+	 $n = $this->crear("Fulano","Detal","");
+ }
+  public function testSihayelsalariovacio()
+ {
+	 $this->expectException(\Exception::class);
+	 $n = $this->crear("Fulano","Detal",123,"");
+ }
 
  public function testsectordevolvernoespecificado()
  {
