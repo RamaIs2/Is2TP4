@@ -27,12 +27,12 @@ public function testobtenernombreyapellido()
   public function testToString()
  {
 	 $nm = $this->crear("Fulano","Detal",123,2000);
-	 $this->assertEquals("FulanoDetal 123 2000", $nm);	
+	 $this->assertEquals("Fulano Detal 123 2000", $nm);	
 	 }
 public function testSihayNombrevacio()
  {
 	 $this->expectException(\Exception::class);
-	 $n = $this->crear(" ");
+	 $n = $this->crear("",);
  }
  public function testSihayapellidovacio()
  {
@@ -58,6 +58,6 @@ public function testSihayNombrevacio()
  public function testsectordevolvernoespecificado()
  {
      $no = $this->crear();
-     $this->assertEquals("No Especificado",$no->getSector());
+     $this->assertEquals("No especificado",$no->getSector());
  }
  }

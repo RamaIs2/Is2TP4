@@ -4,7 +4,7 @@ class EmpleadoPermanenteTest extends EmpleadoTest
 { 
 public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $salario = 2000,\datetime $fechaingreso = null)
 	{
-        $empp = new \App\EmpleadoPermanente($nombre,$apellido,$dni,$salario,$fechaingreso,$montos);
+        $empp = new \App\EmpleadoPermanente($nombre,$apellido,$dni,$salario,$fechaingreso);
 	    return $empp;
 	}
  public function testobtenerlafechadeingreso()
@@ -35,9 +35,9 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
      }
   public function testfechaposterioraladehoy()
   {
-  $this->expectException(\Exception::class);
   $m = $this->crear("Fulano","Detal",123,2000,null);
-  $this-> $fechaingreso>getfechaIngreso();
+  $this->expectException(\Exception::class);
+  $this-> $m>getfechaIngreso();
 }
 }
 
