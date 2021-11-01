@@ -2,7 +2,7 @@
 require_once 'EmpleadoTest.php';
 class EmpleadoEventualTest extends EmpleadoTest
 {
- public function crear($nombre="Fulano",$apellido="Detal",$dni=123,$salario=2000,Array $montos = [2000])
+ public function crear($nombre="Fulano",$apellido="Detal",$dni=123,$salario=2000, $montos = 1000)
  {
 	$empe = new \App\EmpleadoEventual($nombre,$apellido,$dni,$salario,$montos);
 	return $empe;
@@ -10,19 +10,20 @@ class EmpleadoEventualTest extends EmpleadoTest
 
 	public function testprobarcalcularlacomision()
     {
-		$m = $montos;
+		$m = $this->crear("Fulano","Detal",123,2000,1000);
 	    $this->assertEquals($m,calcularComision());
 	}
 	public function testcalculoingresototal()
 	{
-	    $m = $montos;
+	   $s= $this->crear("Fulano","Detal",123,2000,1000);
 	    $this->assertEquals($m,calcularIngresoTotal());
 	}
 	 public function testNosepuedesernegativoocero()
 
        {
-	 $this->expectException(\Exception::class);
-      $montos <= [0]; 
+    $this->expectException(\Exception::class);
+	 $m = $this->crear("Fulano","Detal",123,2000,0);
+     $montos <= [0]; 
       }
 
 }
