@@ -49,6 +49,11 @@ public function testSihayNombrevacio()
 	 $this->expectException(\Exception::class);
 	 $n = $this->crear("Fulano","Detal",123,"");
  }
+ public function testDNIletraocaracternonumerico()
+ {
+	 $this->expectException(\Exception::class);
+	 $n= $this->crear("Fulano","Detal",'/\D/', '',);
+ }
 
  public function testsectordevolvernoespecificado()
  {

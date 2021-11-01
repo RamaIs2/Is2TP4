@@ -9,8 +9,9 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
 	}
  public function testobtenerlafechadeingreso()
 {	
-	  $this->assertEquals((new DateTime())->format('Y-m-d\TH:i'), 
-      ($emp->getFechaIngreso())->format('Y-m-d\TH:i'));
+      $m = $this->crear(null);
+      $this->assertEquals((new DateTime())->format('Y-m-d\TH:i'), ($m->getFechaIngreso())->format('Y-m-d\TH:i'));
+      
 }
    public function testcalcularlacomision()
    {
@@ -19,23 +20,23 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
 	}
 	public function testcalculoingresototal()
 	{
-	    $m = $this->$montos;
-	    $this->assertEquals(2000,calcularIngresoTotal());
+	    $m = $montos;
+	    $this->assertEquals($m,calcularIngresoTotal());
 	}
 	 public function testempleadovariosañosdeantiguedad()
 	 {
-		 $t= $this->getFechaIngreso;
+		 $t= $this->getFechaIngreso();
 		 $this->assertEquals($t,calcularAntiguedad());
 	 }
 	 public function testempleadosinpropocionarlafechadeingreso()
 	 {
 	 $t= $this->getFechaIngreso;
-	  $this->assertEquals($t, 0->getAntiguedad());
-  }
+	 $this->assertEquals(0,$t->getAntiguedad());
+     }
   public function testfechaposterioraladehoy()
   {
   $this->expectException(\Exception::class);
-  $this->assertEquals->getfechaIngreso;
+  $this->assertEquals->getfechaIngreso();
 }
 }
 

@@ -7,23 +7,22 @@ class EmpleadoEventualTest extends EmpleadoTest
 	$empe = new \App\EmpleadoEventual($nombre,$apellido,$dni,$salario,$montos);
 	return $empe;
   }
-  {
-	public function testprobarcalcularlacomision();
+
+	public function testprobarcalcularlacomision()
     {
-		$m = $this->$montos;
+		$m = $montos;
 	    $this->assertEquals($m,calcularComision());
 	}
-	public function testcalculoingresototal();
-	    $m = $this->$montos;
-	    $this->assertEquals($m,2000->calcularIngresoTotal());
-	
+	public function testcalculoingresototal()
+	{
+	    $m = $montos;
+	    $this->assertEquals($m,calcularIngresoTotal());
+	}
 	 public function testNosepuedesernegativoocero()
-    {
+
        {
-        $montos = [0,-100,100];
-        $this->expectException(\Exception::class);
-        $e = $this->eventual([0,-100,100]);
-    }
+	 $this->expectException(\Exception::class);
+      $montos <= [0]; 
+      }
 
 }
-
