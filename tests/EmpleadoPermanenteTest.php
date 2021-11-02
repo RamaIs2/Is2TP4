@@ -15,7 +15,7 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
    public function testcalcularlacomision()
    {
 		$m = $this->crear("Fulano","Detal",123,2000,null);
-	    $this->assertEquals(null,$m-> calcularComision());
+	    $this->assertEquals(null,calcularComision());
 	}
 	public function testcalculoingresototal()
 	{
