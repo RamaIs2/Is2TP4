@@ -15,22 +15,21 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
    public function testcalcularlacomision()
    {
 		$m = $this->crear("Fulano","Detal",123,2000,null);
-	    $this->assertEquals(null,calcularComision());
+	    $this->assertEquals("0%",$m-> calcularComision());
 	}
 	public function testcalculoingresototal()
 	{
 	 $m = $this->crear("Fulano","Detal",123,2000,null);
-	    $this->assertEquals($m,calcularIngresoTotal());
+	    $this->assertEquals(2000,$m->calcularIngresoTotal());
 	}
 	 public function testempleadovariosañosdeantiguedad()
 	 {
 		 $t= $this->crear("Fulano","Detal",123,2000,null);
-		 $this->assertEquals($t,calcularAntiguedad());
+		 $this->assertEquals(0,$t->calcularAntiguedad());
 	 }
 	 public function testempleadosinpropocionarlafechadeingreso()
 	 {
 	 $t= $this->crear("Fulano","Detal",123,2000,null);
-
 	 $this->assertEquals(0,$t->calcularAntiguedad());
      }
   public function testfechaposterioraladehoy()
@@ -38,7 +37,7 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
  
   $this->expectException(\Exception::class);
   $m = $this->crear(null);
-  $this-> $m>getfechaIngreso();
+  $this-> $m > getfechaIngreso();
 }
 }
 
