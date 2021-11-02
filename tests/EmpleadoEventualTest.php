@@ -10,12 +10,12 @@ class EmpleadoEventualTest extends EmpleadoTest
 
 	public function testprobarcalcularlacomision()
     {
-		$m = $this->crear("Fulano","Detal",123,2000,Array($montos=1000));
+		$m = $this-> crear("Fulano","Detal",123,2000,Array($montos=1000));
 	    $this->assertEquals($m,calcularComision());
 	}
 	public function testcalculoingresototal()
 	{
-	   $s= $this->crear("Fulano","Detal",123,2000,Array($montos=1000));
+	   $s = $this-> crear("Fulano","Detal",123,2000,Array($montos=1000));
 	    $this->assertEquals($s,calcularIngresoTotal());
 	}
 	 public function testNosepuedesernegativoocero()

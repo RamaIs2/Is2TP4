@@ -2,7 +2,7 @@
 require_once 'EmpleadoTest.php';
 class EmpleadoPermanenteTest extends EmpleadoTest
 { 
-public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $salario = 2000,\datetime $fechaingreso = null)
+public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $salario = 2000,\Datetime $fechaingreso = null)
 	{
         $empp = new \App\EmpleadoPermanente($nombre,$apellido,$dni,$salario,$fechaingreso);
 	    return $empp;
@@ -11,12 +11,11 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
 {	
       $m = $this->crear("Fulano","Detal",123,2000,null);
       $this->assertEquals((new DateTime())->format('Y-m-d\TH:i'), ($m->getFechaIngreso())->format('Y-m-d\TH:i'));
-      
 }
    public function testcalcularlacomision()
    {
 		$m = $this->crear("Fulano","Detal",123,2000,null);
-	    $this->assertEquals($m,calcularComision());
+	    $this->assertEquals(null,$m-> calcularComision());
 	}
 	public function testcalculoingresototal()
 	{
@@ -31,12 +30,14 @@ public function crear($nombre = "Fulano", $apellido = "Detal", $dni = 123, $sala
 	 public function testempleadosinpropocionarlafechadeingreso()
 	 {
 	 $t= $this->crear("Fulano","Detal",123,2000,null);
-	 $this->assertEquals(0,$t->getAntiguedad());
+
+	 $this->assertEquals(0,$t->calcularAntiguedad());
      }
   public function testfechaposterioraladehoy()
   {
-  $m = $this->crear("Fulano","Detal",123,2000,null);
+ 
   $this->expectException(\Exception::class);
+  $m = $this->crear(null);
   $this-> $m>getfechaIngreso();
 }
 }
